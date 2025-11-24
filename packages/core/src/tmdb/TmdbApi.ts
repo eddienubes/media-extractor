@@ -152,6 +152,28 @@ export class TmdbApi {
     return res.data!
   }
 
+  async getTvShowExternalIds(id: number) {
+    const res = await this.client.GET('/3/tv/{series_id}/external_ids', {
+      params: {
+        path: {
+          series_id: id,
+        },
+      },
+    })
+    return res.data!
+  }
+
+  async getMovieExternalIds(id: number) {
+    const res = await this.client.GET('/3/movie/{movie_id}/external_ids', {
+      params: {
+        path: {
+          movie_id: id,
+        },
+      },
+    })
+    return res.data!
+  }
+
   /**
    * @param path starts with a slash
    */
