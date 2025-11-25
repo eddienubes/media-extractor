@@ -6,13 +6,5 @@
   "semi": false,
   "bracketSpacing": true,
   "singleQuote": true,
-  "arrowParens": "always",
-  "overrides": [
-    {
-      "files": "*.pug",
-      "options": {
-        "parser": "pug"
-      }
-    }
-  ]
+  "arrowParens": "always"
 }

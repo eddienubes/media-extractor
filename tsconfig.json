@@ -9,10 +9,12 @@
     "moduleResolution": "NodeNext",
     "noImplicitAny": true,
     "skipLibCheck": true,
+    "noEmit": true,
     "forceConsistentCasingInFileNames": true,
     "strictPropertyInitialization": false,
-    "types": [
-      "vitest/globals"
-    ]
+    "types": ["vitest/globals"],
+    "paths": {
+      "@libs/*": ["./libs/*"]
+    }
   }
 }
