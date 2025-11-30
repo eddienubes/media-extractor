@@ -7,7 +7,9 @@
   "scripts": {
     "gen:tmdb": "tsx libs/tmdb/tmdbApiGenerator.ts",
     "format": "pnpm prettier --write .",
-    "migrate": "pnpm run migrate --filter @carny/core"
+    "migrate": "pnpm run migrate --filter @carny/core",
+    "client:build": "pnpm vite build --config apps/client/vite.config.ts",
+    "client:dev": "pnpm vite --config apps/client/vite.config.ts"
   },
   "keywords": [],
   "author": "",
@@ -23,6 +25,7 @@
     "@hono/node-server": "^1.19.6",
     "@ngneat/falso": "^7.3.0",
     "@p-stream/providers": "github:p-stream/providers#b03b4e9f68ac2eb2e6ba70d987ce0e9871826607",
+    "@playwright/test": "^1.57.0",
     "ai": "^5.0.101",
     "axios": "^1.7.9",
     "date-fns": "^4.1.0",
@@ -38,18 +41,31 @@
     "postgres": "^3.4.5",
     "puppeteer-extra-plugin-stealth": "^2.11.2",
     "subtitle": "4.2.2",
+    "vue": "^3.5.25",
     "webtorrent": "^2.5.19",
     "zod": "^4.1.13",
     "zx": "^8.8.5"
   },
   "devDependencies": {
+    "@types/jsdom": "^27.0.0",
     "@types/node": "^22.13.0",
+    "@vitejs/plugin-vue": "^6.0.2",
+    "@vitest/eslint-plugin": "^1.5.1",
+    "@vue/eslint-config-prettier": "^10.2.0",
+    "@vue/eslint-config-typescript": "^14.6.0",
+    "@vue/tsconfig": "^0.8.1",
     "eslint": "^9.19.0",
+    "eslint-plugin-playwright": "^2.4.0",
+    "eslint-plugin-vue": "^10.6.2",
+    "jsdom": "^27.2.0",
     "prettier": "^3.4.2",
     "tsup": "^8.3.6",
     "tsx": "^4.19.2",
     "typescript": "^5.7.3",
-    "vitest": "^4.0.13"
+    "vite": "^7.2.4",
+    "vite-plugin-vue-devtools": "^8.0.5",
+    "vitest": "^4.0.13",
+    "vue-tsc": "^3.1.5"
   },
   "pnpm": {
     "onlyBuiltDependencies": [

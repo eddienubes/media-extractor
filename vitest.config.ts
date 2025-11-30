@@ -20,7 +20,15 @@ export default defineConfig({
       {
         extends: true,
         test: {
+          exclude: ['**/client/**'],
           name: 'main',
+        },
+      },
+      {
+        extends: true,
+        test: {
+          include: ['**/client/**/.spec'],
+          name: 'client',
         },
       },
     ],
