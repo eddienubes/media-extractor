@@ -1,9 +1,8 @@
 import { generateApiTypes } from '../api-generators/open-api-generator.js'
 import path from 'node:path'
 
-const v3Source =
-  'https://developer.themoviedb.org/openapi/tmdb-api.json'
-const destination = path.join(import.meta.dirname, 'tmdb-types', 'types.ts')
+const v3Source = 'https://developer.themoviedb.org/openapi/tmdb-api.json'
+const destination = path.join(__dirname, 'tmdb-types', 'types.ts')
 
 export const generateTmdbApiTypes = async (): Promise<void> => {
   await generateApiTypes(v3Source, destination)

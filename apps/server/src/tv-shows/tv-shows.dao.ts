@@ -2,8 +2,7 @@ import { Dao } from '../bot/postgres/dao.js'
 import { PgService } from '../bot/postgres/pg.service.js'
 import { InferInsertModel, InferSelectModel } from 'drizzle-orm'
 import { tvShowsTable } from '../bot/postgres/schema.js'
-import falso from '@ngneat/falso'
-import { timestamp, uuid, varchar } from 'drizzle-orm/pg-core'
+import { faker } from '@faker-js/faker'
 
 export type TvShowInsert = InferInsertModel<typeof tvShowsTable>
 export type TvShowSelect = InferSelectModel<typeof tvShowsTable>
@@ -19,11 +18,11 @@ export class TvShowDao extends Dao {
     const hit = await this.client
       .insert(tvShowsTable)
       .values({
-        tmdbId: falso.randAlpha({ maxCharCount: 10 }),
-        title: falso.randMovie(),
-        overview: falso.randText(),
-        releaseDate: falso.randPastDate(),
-        posterUrl: falso.randUrl(),
+        tmdbId: faker.string.alphanumeric({ length: 10 }),
+        title: faker.word.sample(),
+        overview: faker.lorem.sentences(3),
+        releaseDate: faker.date.anytime(),
+        posterUrl: faker.internet.url(),
         ...attrs,
       })
       .returning()
@@ -37,7 +36,5 @@ export class TvShowDao extends Dao {
     return hit[0]
   }
 
-  async getById(uuid: string): Promise<TvShowSelect> {
-
-  }
+  async getById(uuid: string): Promise<TvShowSelect> {}
 }

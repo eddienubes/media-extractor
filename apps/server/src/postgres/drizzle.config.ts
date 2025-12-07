@@ -1,14 +1,13 @@
 import { defineConfig } from 'drizzle-kit'
-import { loadConfig } from '@carny/config'
 import path from 'node:path'
+import { loadConfig } from '../config.js'
 
 const config = loadConfig()
 
 // https://github.com/drizzle-team/drizzle-orm/issues/3807
 // Remove first slash to fix the issue above.
-const migrationsPath = path.join(__dirname, 'migrations').replace('/', '')
-
-const schemaPath = path.join(__dirname, 'schema.ts')
+const migrationsPath = path.relative('.', path.resolve(__dirname, 'migrations'))
+const schemaPath = path.relative('.', path.resolve(__dirname, 'schema.ts'))
 
 export default defineConfig({
   dialect: 'postgresql',

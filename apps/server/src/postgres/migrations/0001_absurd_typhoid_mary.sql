@@ -1,0 +1,1 @@
+ALTER TABLE "tv_show_episodes" ALTER COLUMN "tv_show_id" SET NOT NULL;
